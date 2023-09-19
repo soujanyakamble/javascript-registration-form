@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Student Registration Blog</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 offset-sm-3 mt-5">
+          <div class="card">
+            <div class="card-header text-center btn-danger h4">Blog</div>
+            <div class="card-body">
+              <div>
+                
+                <div>
+                  <label for="name" class="form-label">First name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="firstname"
+                    placeholder="Enter Your Name"
+                  />
+                </div>
+                <div>
+                  <label for="name" class="form-label">lastName</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="lastName"
+                    placeholder="Enter Your lastName"
+                  />
+                </div>
+                <div>
+                  <label for="name" class="form-label">ClassId</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="classId"
+                    placeholder="Enter Your lastName"
+                  />
+                </div>
+                <div>
+                  <label for="name" class="form-label">Mobile No</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="mobileno"
+                    placeholder="Enter Your lastName"
+                  />
+                </div>
+            
+        </div>
+            </div>
+            <button
+              type="submit"
+              onclick="handleledBlog()"
+              class="btn btn-outline-warning m-2"
+            >
+              Submit
+            </button>
+          </div>
+          <!-- output -->
+          <div>
+            <table class="table table-dark table-striped table-hover mt-2">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">First Name</th>
+                  <th scope="col">Last Name</th>
+                  <th scope="col">ClassId</th>
+                  <th scope="col">Mobile No</th>
+                </tr>
+              </thead>
+              <tbody id="output2"></tbody>
+            </table>
+          </div>
+          <!-- output -->
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      let Blog = [];
+      let handleledBlog = () => {
+        let fname = document.querySelector("#firstname").value;
+        console.log(fname);
+        let lname = document.querySelector("#lastName").value;
+        console.log(lname);
+        let ClassID = document.querySelector("#classId").value;
+        console.log(ClassID);
+        let Mobileno = document.querySelector("#mobileno").value;
+        console.log(Mobileno);
+        Blog.push({
+          Name: fname,
+          Lname: lname,
+          classid: ClassID,
+          mobileno: Mobileno,
+        });
+
+        // console.log(Blog);
+        displayData();
+      };
+      function displayData() {
+        let str = "";
+        for (let i = 0; i < Blog.length; i++) {
+          console.log(i);
+          str +=`
+            <tr>
+              <th scope="row">${i+1}</th>
+              <td>${Blog[i].Name}</td>
+              <td>${Blog[i].Lname}</td>
+              <td>${Blog[i].classid}</td>
+              <td>${Blog[i].mobileno}</td>
+            </tr>`
+        ;
+        }
+        document.querySelector("#output2").innerHTML = str;
+       
+        
+        
+      }
+    </script>
+  </body>
+</html>
